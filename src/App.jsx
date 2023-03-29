@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 const App = () => {
   const [inputTodo, setInputTodo] = useState("");
@@ -76,9 +77,8 @@ const App = () => {
               return (
                 <>
                   <div key={everyTodo} className="every-list">
-                    <p>{index + 1}</p>
+                    <p>{index + 1}. </p>
                     <li className="list">{everyTodo}</li>
-
                     <select name="progress" id={index + 1}>
                       <option value="incomplete">未完了</option>
                       <option value="doing">進行中</option>
@@ -101,7 +101,6 @@ const App = () => {
           </ul>
         </div>
         <div className="edit-area">
-          <p>編集エリア</p>
           <input
             type="text"
             value={editTodo}
