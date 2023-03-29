@@ -1,0 +1,20 @@
+ul{
+  list-style: none;
+}
+
+.every-list{
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+button{
+  background-color: azure;
+  border-radius: 4px;
+}
+
+button:hover{
+  background-color: rgb(37, 233, 233);
+  border-radius: 4px;
+}
+
