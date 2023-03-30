@@ -61,15 +61,32 @@ const App = () => {
   return (
     <>
       <div className="main-page">
-        <div className="input-area">
-          <input
-            type="text"
-            placeholder="TODOを入力"
-            value={inputTodo}
-            onChange={onChangeTodo}
-          />
-          <button onClick={addTodo}>追加</button>
-        </div>
+        {editBool ? (
+          <div className="edit-area">
+            <input
+              type="text"
+              value={editTodo}
+              onChange={onChangeEditTodo}
+              placeholder="編集内容が入ります"
+            />
+            <button disabled={!editBool} onClick={editSaveButton}>
+              保存
+            </button>
+            <button disabled={!editBool} onClick={cancelEdit}>
+              キャンセル
+            </button>
+          </div>
+        ) : (
+          <div className="input-area">
+            <input
+              type="text"
+              placeholder="TODOを入力"
+              value={inputTodo}
+              onChange={onChangeTodo}
+            />
+            <button onClick={addTodo}>追加</button>
+          </div>
+        )}
 
         <div className="todo-list-area">
           <ul>
@@ -99,20 +116,6 @@ const App = () => {
               );
             })}
           </ul>
-        </div>
-        <div className="edit-area">
-          <input
-            type="text"
-            value={editTodo}
-            onChange={onChangeEditTodo}
-            placeholder="編集内容が入ります"
-          />
-          <button disabled={!editBool} onClick={editSaveButton}>
-            保存
-          </button>
-          <button disabled={!editBool} onClick={cancelEdit}>
-            キャンセル
-          </button>
         </div>
       </div>
     </>
