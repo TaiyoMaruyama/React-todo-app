@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import TodoListArea from "./components/TodoListArea";
+import InputArea from "./components/InputArea";
 
 const App = () => {
   const [inputTodo, setInputTodo] = useState("");
@@ -78,17 +79,18 @@ const App = () => {
             </button>
           </div>
         ) : (
-          <div className="input-area">
-            <input
-              type="text"
-              placeholder="TODOを入力"
-              value={inputTodo}
-              onChange={onChangeTodo}
-            />
-            <button onClick={addTodo}>追加</button>
-          </div>
+          <InputArea
+            inputTodo={inputTodo}
+            onChangeTodo={onChangeTodo}
+            addTodo={addTodo}
+          />
         )}
-        <TodoListArea todos={todos} editBool={editBool} editText={editText} deleteAction={deleteAction}/>
+        <TodoListArea
+          todos={todos}
+          editBool={editBool}
+          editText={editText}
+          deleteAction={deleteAction}
+        />
       </div>
     </>
   );
